@@ -39,4 +39,27 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-console.log( employees );
+function bonusCalculator(employeeArray) {
+
+  for (let employee of employeeArray) {
+    let name = employee.name ;
+    let bonusPercentage = ;
+    let totalBonus = employee.annualSalary * bonusPercentage;
+    let totalCompensation = employee.annualSalary + totalBonus;
+    if (employee.reviewRating <= 2) {
+      bonusPercentage = 0;
+    }
+    else if (employee.reviewRating = 3) {
+
+    }
+    // console.log(employee)// shows iteration
+    // 
+  }
+}
+
+bonusCalculator(employees)
+// 
+
+
+
+console.log(employees);
