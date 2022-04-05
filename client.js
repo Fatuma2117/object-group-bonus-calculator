@@ -40,21 +40,35 @@ const employees = [
 // Ask questions when you don't.
 
 function bonusCalculator(employeeArray) {
-
+  //  console.log('expect .09, .06, .15 , 0, 0 (bonusPercentage)
+  //console.log('expect 1880, 3810, 7475, 0,0 ');
+  console.log('expect 48800, 67310, 82225, 66000, 35000 ');
+let newEmployeeBonus = []
   for (let employee of employeeArray) {
     let name = employee.name ;
-    let bonusPercentage = ;
-    let totalBonus = employee.annualSalary * bonusPercentage;
-    let totalCompensation = employee.annualSalary + totalBonus;
+    let bonusPercentage = 0;
+    
     if (employee.reviewRating <= 2) {
       bonusPercentage = 0;
     }
-    else if (employee.reviewRating = 3) {
-
+    else if (employee.reviewRating === 3) {
+      bonusPercentage = .04;
     }
+    else if (employee.reviewRating === 4) {
+      bonusPercentage = .06;
+    } else if (employee.reviewRating === 5) {
+      bonusPercentage = .10;
+    }
+    if (employee.employeeNumber.length === 4){
+      bonusPercentage +=  .05;
+    }
+    let totalBonus = employee.annualSalary * bonusPercentage;
+    let totalCompensation = Number(employee.annualSalary) + totalBonus;
     // console.log(employee)// shows iteration
-    // 
+    
+    console.log(bonusPercentage);
   }
+
 }
 
 bonusCalculator(employees)
