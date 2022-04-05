@@ -42,12 +42,12 @@ const employees = [
 function bonusCalculator(employeeArray) {
   //  console.log('expect .09, .06, .15 , 0, 0 (bonusPercentage)
   //console.log('expect 1880, 3810, 7475, 0,0 ');
-  console.log('expect 48800, 67310, 82225, 66000, 35000 ');
-let newEmployeeBonus = []
+  //console.log('expect 48800, 67310, 82225, 66000, 35000 ');
+  let newEmployeeBonus = []
   for (let employee of employeeArray) {
-    let name = employee.name ;
+    let name = employee.name;
     let bonusPercentage = 0;
-    
+
     if (employee.reviewRating <= 2) {
       bonusPercentage = 0;
     }
@@ -59,16 +59,29 @@ let newEmployeeBonus = []
     } else if (employee.reviewRating === 5) {
       bonusPercentage = .10;
     }
-    if (employee.employeeNumber.length === 4){
-      bonusPercentage +=  .05;
+    if (employee.employeeNumber.length === 4) {
+      bonusPercentage += .05;
     }
-    let totalBonus = employee.annualSalary * bonusPercentage;
+    console.log(employee.annualSalary)
+    if (Number(employee.annualSalary) > 65000 && bonusPercentage >= .01) {
+      bonusPercentage -= .01;
+    }
+    if (bonusPercentage > .13) {
+      bonusPercentage = .13;
+    }
+    let totalBonus = Number(employee.annualSalary) * bonusPercentage;
     let totalCompensation = Number(employee.annualSalary) + totalBonus;
     // console.log(employee)// shows iteration
-    
-    console.log(bonusPercentage);
-  }
 
+    newEmployeeBonus.push(
+      {
+        name: name,
+        bonusPercentage: bonusPercentage,
+        totalCompensation: totalCompensation,
+        totalBonus: totalBonus
+      });
+  }
+  return newEmployeeBonus
 }
 
 bonusCalculator(employees)
@@ -77,3 +90,4 @@ bonusCalculator(employees)
 
 
 console.log(employees);
+console.log(bonusCalculator(employees))
